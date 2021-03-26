@@ -3,5 +3,18 @@
 </div>
 
 <div class="total-budget-section">
-  <h2 class="green">1500</h2>
+  <h2 class="green">{{totalBudget}}</h2>
 </div>
+
+<div class="add-item-section">
+  <div class="add-item-container">
+    <app-add-item style="padding:20px;" (formSubmit)="addItem($event)"></app-add-item>
+  </div>
+</div>
+
+<hr style="margin-top:0px;">
+<app-budget-item-list
+  [budgetItems]="budgetItems"
+  (parentDeleteItem)="deleteItem($event)"
+  (updateItem)="updateItem($event)" >
+</app-budget-item-list>
